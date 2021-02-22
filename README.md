@@ -1,4 +1,4 @@
-# mercado_livre
+# Flutter Mercado_Livre APP
 
 A new Flutter project.
 
