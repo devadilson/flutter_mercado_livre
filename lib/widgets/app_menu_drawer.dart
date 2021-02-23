@@ -48,37 +48,54 @@ class AppMenuDrawer extends StatelessWidget {
             ),
           ),
         ),
-        _itemDrawer(Icon(Icons.home), 'Inicio'),
-        _itemDrawer(Icon(Icons.search), 'Buscar'),
-        _itemDrawer(Icon(Icons.notification_important), 'Notificações'),
-        _itemDrawer(Icon(Icons.shopping_bag), 'Minhas compras'),
-        _itemDrawer(Icon(Icons.favorite), 'Favoritos'),
-        _itemDrawer(Icon(Icons.account_circle), 'Minha conta'),
-        _itemDrawer(Icon(Icons.card_giftcard), 'Mercado Crédito'),
-        _itemDrawer(Icon(Icons.bookmarks), 'Assinaturas'),
-        _itemDrawer(Icon(Icons.add_shopping_cart), 'Ofertas do dia'),
-        _itemDrawer(Icon(Icons.compare_arrows), 'Vender'),
-        _itemDrawer(Icon(Icons.done_all), 'Histórico'),
-        Divider(
-          color: Colors.grey,
-        ),
-        _itemDrawer(Icon(Icons.grading), 'Categorias'),
-        _itemDrawer(Icon(Icons.account_balance), 'Supermercado'),
-        _itemDrawer(Icon(Icons.account_balance_wallet), 'Lojas oficiais'),
-        Divider(
-          color: Colors.grey,
-        ),
-        _itemDrawer(Icon(Icons.help), 'Ajuda'),
+        _itemDrawer(icon: Icon(Icons.home), text: 'Inicio'),
+        _itemDrawer(icon: Icon(Icons.search), text: 'Buscar'),
+        _itemDrawer(
+            icon: Icon(Icons.notification_important),
+            text: 'Notificações',
+            badge: '5'),
+        _itemDrawer(
+            icon: Icon(Icons.shopping_bag), text: 'Minhas compras', badge: '3'),
+        _itemDrawer(icon: Icon(Icons.favorite), text: 'Favoritos'),
+        _itemDrawer(icon: Icon(Icons.account_circle), text: 'Minha conta'),
+        _itemDrawer(icon: Icon(Icons.card_giftcard), text: 'Mercado Crédito'),
+        _itemDrawer(icon: Icon(Icons.bookmarks), text: 'Assinaturas'),
+        _itemDrawer(
+            icon: Icon(Icons.add_shopping_cart), text: 'Ofertas do dia'),
+        _itemDrawer(icon: Icon(Icons.compare_arrows), text: 'Vender'),
+        _itemDrawer(icon: Icon(Icons.done_all), text: 'Histórico'),
+        Divider(color: Colors.grey),
+        _itemDrawer(icon: Icon(Icons.grading), text: 'Categorias'),
+        _itemDrawer(icon: Icon(Icons.account_balance), text: 'Supermercado'),
+        _itemDrawer(
+            icon: Icon(Icons.account_balance_wallet), text: 'Lojas oficiais'),
+        Divider(color: Colors.grey),
+        _itemDrawer(icon: Icon(Icons.exit_to_app), text: 'Sair'),
+        Divider(color: Colors.grey),
+        _itemDrawer(icon: Icon(Icons.help), text: 'Ajuda'),
       ],
     );
   }
 
-  Widget _itemDrawer(Icon icon, String text) {
+  Widget _itemDrawer({Icon icon, String text, String badge = ''}) {
     return ListTile(
       leading: IconTheme(child: icon, data: IconThemeData(color: Colors.black)),
       title: Text(
         text,
         style: TextStyle(color: Colors.black),
+      ),
+      trailing: Container(
+        decoration: BoxDecoration(
+            color: Colors.blue, borderRadius: BorderRadius.circular(100.0)),
+        child: badge != ''
+            ? Padding(
+                padding: EdgeInsets.fromLTRB(6.0, 2.0, 6.0, 2.0),
+                child: Text(
+                  badge,
+                  style: TextStyle(color: Colors.white),
+                ),
+              )
+            : Text(''),
       ),
       onTap: () {},
     );
