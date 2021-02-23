@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:mercado_livre/pages/cart.dart';
+import 'package:mercado_livre/pages/home.dart';
 import 'package:mercado_livre/widgets/app_bar_search.dart';
 import 'package:mercado_livre/widgets/app_menu_drawer.dart';
 
@@ -37,7 +39,14 @@ class _HomeMyAppState extends State<HomeMyApp> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.shopping_cart),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Cart(),
+                ),
+              );
+            },
           ),
           IconButton(
             icon: Icon(Icons.search),
@@ -48,7 +57,7 @@ class _HomeMyAppState extends State<HomeMyApp> {
         ],
       ),
       body: Center(
-        child: Text('Home Mercado Livre'),
+        child: Home(),
       ),
     );
   }

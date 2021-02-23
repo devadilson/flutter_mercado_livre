@@ -1,5 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:flutter/cupertino.dart';
+import 'package:mercado_livre/pages/page01.dart';
+import 'package:mercado_livre/pages/page02.dart';
 
 class AppMenuDrawer extends StatelessWidget {
   @override
@@ -48,36 +51,47 @@ class AppMenuDrawer extends StatelessWidget {
             ),
           ),
         ),
-        _itemDrawer(icon: Icon(Icons.home), text: 'Inicio'),
-        _itemDrawer(icon: Icon(Icons.search), text: 'Buscar'),
-        _itemDrawer(
+        _itemDrawer(context, Page01(), icon: Icon(Icons.home), text: 'Inicio'),
+        _itemDrawer(context, Page02(),
+            icon: Icon(Icons.search), text: 'Buscar'),
+        _itemDrawer(context, Page01(),
             icon: Icon(Icons.notification_important),
             text: 'Notificações',
             badge: '5'),
-        _itemDrawer(
+        _itemDrawer(context, Page02(),
             icon: Icon(Icons.shopping_bag), text: 'Minhas compras', badge: '3'),
-        _itemDrawer(icon: Icon(Icons.favorite), text: 'Favoritos'),
-        _itemDrawer(icon: Icon(Icons.account_circle), text: 'Minha conta'),
-        _itemDrawer(icon: Icon(Icons.card_giftcard), text: 'Mercado Crédito'),
-        _itemDrawer(icon: Icon(Icons.bookmarks), text: 'Assinaturas'),
-        _itemDrawer(
+        _itemDrawer(context, Page01(),
+            icon: Icon(Icons.favorite), text: 'Favoritos'),
+        _itemDrawer(context, Page02(),
+            icon: Icon(Icons.account_circle), text: 'Minha conta'),
+        _itemDrawer(context, Page01(),
+            icon: Icon(Icons.card_giftcard), text: 'Mercado Crédito'),
+        _itemDrawer(context, Page01(),
+            icon: Icon(Icons.bookmarks), text: 'Assinaturas'),
+        _itemDrawer(context, Page01(),
             icon: Icon(Icons.add_shopping_cart), text: 'Ofertas do dia'),
-        _itemDrawer(icon: Icon(Icons.compare_arrows), text: 'Vender'),
-        _itemDrawer(icon: Icon(Icons.done_all), text: 'Histórico'),
+        _itemDrawer(context, Page01(),
+            icon: Icon(Icons.compare_arrows), text: 'Vender'),
+        _itemDrawer(context, Page01(),
+            icon: Icon(Icons.done_all), text: 'Histórico'),
         Divider(color: Colors.grey),
-        _itemDrawer(icon: Icon(Icons.grading), text: 'Categorias'),
-        _itemDrawer(icon: Icon(Icons.account_balance), text: 'Supermercado'),
-        _itemDrawer(
+        _itemDrawer(context, Page01(),
+            icon: Icon(Icons.grading), text: 'Categorias'),
+        _itemDrawer(context, Page01(),
+            icon: Icon(Icons.account_balance), text: 'Supermercado'),
+        _itemDrawer(context, Page01(),
             icon: Icon(Icons.account_balance_wallet), text: 'Lojas oficiais'),
         Divider(color: Colors.grey),
-        _itemDrawer(icon: Icon(Icons.exit_to_app), text: 'Sair'),
+        _itemDrawer(context, Page01(),
+            icon: Icon(Icons.exit_to_app), text: 'Sair'),
         Divider(color: Colors.grey),
-        _itemDrawer(icon: Icon(Icons.help), text: 'Ajuda'),
+        _itemDrawer(context, Page01(), icon: Icon(Icons.help), text: 'Ajuda'),
       ],
     );
   }
 
-  Widget _itemDrawer({Icon icon, String text, String badge = ''}) {
+  Widget _itemDrawer(context, page,
+      {Icon icon, String text, String badge = ''}) {
     return ListTile(
       leading: IconTheme(child: icon, data: IconThemeData(color: Colors.black)),
       title: Text(
@@ -97,7 +111,14 @@ class AppMenuDrawer extends StatelessWidget {
               )
             : Text(''),
       ),
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => page,
+          ),
+        );
+      },
     );
   }
 }
