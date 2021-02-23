@@ -47,8 +47,40 @@ class AppMenuDrawer extends StatelessWidget {
               ],
             ),
           ),
-        )
+        ),
+        _itemDrawer(Icon(Icons.home), 'Inicio'),
+        _itemDrawer(Icon(Icons.search), 'Buscar'),
+        _itemDrawer(Icon(Icons.notification_important), 'Notificações'),
+        _itemDrawer(Icon(Icons.shopping_bag), 'Minhas compras'),
+        _itemDrawer(Icon(Icons.favorite), 'Favoritos'),
+        _itemDrawer(Icon(Icons.account_circle), 'Minha conta'),
+        _itemDrawer(Icon(Icons.card_giftcard), 'Mercado Crédito'),
+        _itemDrawer(Icon(Icons.bookmarks), 'Assinaturas'),
+        _itemDrawer(Icon(Icons.add_shopping_cart), 'Ofertas do dia'),
+        _itemDrawer(Icon(Icons.compare_arrows), 'Vender'),
+        _itemDrawer(Icon(Icons.done_all), 'Histórico'),
+        Divider(
+          color: Colors.grey,
+        ),
+        _itemDrawer(Icon(Icons.grading), 'Categorias'),
+        _itemDrawer(Icon(Icons.account_balance), 'Supermercado'),
+        _itemDrawer(Icon(Icons.account_balance_wallet), 'Lojas oficiais'),
+        Divider(
+          color: Colors.grey,
+        ),
+        _itemDrawer(Icon(Icons.help), 'Ajuda'),
       ],
+    );
+  }
+
+  Widget _itemDrawer(Icon icon, String text) {
+    return ListTile(
+      leading: IconTheme(child: icon, data: IconThemeData(color: Colors.black)),
+      title: Text(
+        text,
+        style: TextStyle(color: Colors.black),
+      ),
+      onTap: () {},
     );
   }
 }
